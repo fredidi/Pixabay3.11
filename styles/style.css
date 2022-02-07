@@ -143,7 +143,7 @@ main div {
     align-items: flex-start;
 }
 
-#img-wrapper .loadImg {
+#img-wrapper .load-Img {
     width: 280px;
     height: 184px;
     background-repeat: no-repeat;
@@ -152,10 +152,14 @@ main div {
     cursor: pointer;
     margin-top: 15px;
 }
-#img-wrapper .loadImg:hover {
+#img-wrapper .load-Img:hover {
     background-color: #fbfbfb;
     opacity: 90%;
 }
+#img-wrapper p {
+    color: red;
+}
+
 
 
 @media (min-width: 800px){
@@ -171,7 +175,7 @@ main div {
     }
 
     #img-show {
-        flex: 3;  
+        flex: 7;  
         text-align: center;
     }
     

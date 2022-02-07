@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
     
-    <script src="script.js" defer></script>
+
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,29 +23,28 @@
         </div>
         <h1>Pixabay - Remake by Frida and Fredrik</h1>
         <form class="search-bar-button">
-            <input id="input" type="text" placeholder="Search for images..."><i id="search"></i>
+            <input id="input" type="text" placeholder="Search for images...">
                 <div class="dropdown">
                     <button class="dropbtn">Choose color</button>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Any color</a>
-                    <button onclick="clickAnyColor()">Any color</button>
-                    <a href="#">Grayscale</a>
-                    <button onclick="clickGrayscale()">Grayscale</button>
-                    <a href="#">Transparent</a>
-                    <button onclick="clickTransparent()">Transparent</button>
-                    <a href="#">Red</a>
-                    <button onclick="clickRed()">red</button>
-                    <a href="#">Orange</a>
-                    <a href="#">Yellow</a>
-                    <a href="#">Green</a>
-                    <a href="#">Turquoise</a>
-                    <a href="#">Blue</a>
-                    <a href="#">Lilac</a>
-                    <a href="#">Pink</a>
-                    <a href="#">White</a>
-                    <a href="#">Gray</a>
-                    <a href="#">Black</a>
-                    <a href="#">Brown</a>
+                        <button onclick="changeColorOnClick(this.id)" id="any-color">Any Color</button>
+                        
+                        <button onclick="changeColorOnClick(this.id)" id="grayscale">Grayscale</button>
+                        
+                        <button onclick="changeColorOnClick(this.id)" id="transparent">Transparent</button>
+                        <button id="red" type="button" value="red">Red</button>
+                        <a href="#">Orange</a>
+                        <a href="#">Yellow</a>
+                        <a href="#">Green</a>
+                        <a href="#">Turquoise</a>
+                        <button id="blue" type="button" value="blue">Blue</button>
+                        <a href="#">Lilac</a>
+                        <a href="#">Pink</a>
+                        <a href="#">White</a>
+                        <a href="#">Gray</a>
+                        <a href="#">Black</a>
+                        <a href="#">Brown</a>
+                    </div>
                 </div>
             </div>
         </form>
@@ -81,5 +80,7 @@
             <p>Ciaao!</p>
         </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
