@@ -1,6 +1,10 @@
+
+
+/*let params = new URLSearchParams({
+  API_KEY = '25560072-709e2be31011a4ece715ca1f6',
+})*/
+
 var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
-
-
 
 document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
     if (keyPressed.key == "Enter")
@@ -15,7 +19,7 @@ document.querySelector("#search").addEventListener("click", () => {
   
     document.querySelector("#img-wrapper").textContent = "";
   
-    const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10&color='+validateClick+'';
+    let url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
   
     fetch(url)
   
@@ -47,6 +51,13 @@ document.querySelector("#search").addEventListener("click", () => {
   }
 }
 
-function clickRed() {
-  document.getElementsById("red").value = validateClick
-}
+let btnRed = document.getElementById('#red')
+
+btnRed.addEventListener('click', function() {
+  fetch(url + '&colors=red')
+    .then(res => res.json())
+    .then(result => {
+      console.log(result)
+    })
+    .catch(err => console.log(err))
+})
