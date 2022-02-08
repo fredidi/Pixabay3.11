@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
     
-    <script src="script.js" defer></script>
+    <script src="scripts/colorBtn.js" defer></script>
+    <script src="scripts/script.js" defer></script>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +17,7 @@
     <title>Pixabay 2.0</title>
 
 </head>
-<body>
+<body onhashchange="urlfunc(event)">
     <header>
         <div id="logo">
             <a href="https://www.pixabay.com/" target="_blank"><img src="images/pixabay-logo.png"></a>
@@ -27,24 +28,21 @@
                 <div class="dropdown">
                     <button class="dropbtn">Choose color</button>
                     <div id="myDropdown" class="dropdown-content">
-                        <button onclick="changeColorOnClick(this.id)" id="any-color">Any Color</button>
-                        
-                        <button onclick="changeColorOnClick(this.id)" id="grayscale">Grayscale</button>
-                        
-                        <button onclick="changeColorOnClick(this.id)" id="transparent">Transparent</button>
+                        <button id="any-color" type="button" value="any-color">Any Color</button>
+                        <button id="grayscale" type="button" value="grayscale">Grayscale</button>
+                        <button id="transparent" type="button" value="transparent">Transparent</button>
                         <button id="red" type="button" value="red">Red</button>
                         <button id="orange" type="button" value="orange">Orange</button>
-                        <a href="#">Orange</a>
-                        <a href="#">Yellow</a>
-                        <a href="#">Green</a>
-                        <a href="#">Turquoise</a>
+                        <button id="yellow" type="button" value="yellow">Yellow</button>
+                        <button id="green" type="button" value="green">Green</button>
+                        <button id="turquoise" type="button" value="turquoise">Turquoise</button>
                         <button id="blue" type="button" value="blue">Blue</button>
-                        <a href="#">Lilac</a>
-                        <a href="#">Pink</a>
-                        <a href="#">White</a>
-                        <a href="#">Gray</a>
-                        <a href="#">Black</a>
-                        <a href="#">Brown</a>
+                        <button id="lilac" type="button" value="lilac">Lilac</button>
+                        <button id="pink" onclick="changeColor()">Pink</button>
+                        <button id="white" type="button" value="white">White</button>
+                        <button id="gray" type="button" value="gray">Gray</button>
+                        <button id="black" type="button" value="black">Black</button>
+                        <button id="brown" type="button" value="brown">Brown</button>
                     </div>
                 </div>
             </div>

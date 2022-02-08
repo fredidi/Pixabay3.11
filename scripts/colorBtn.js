@@ -2,11 +2,17 @@ function clearLoadImg () {
     document.getElementById("#img-wrapper").innerHTML = "";
 }
 
+var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 let urlBtn = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
 
 document.querySelector("#pink").addEventListener("click", () => {
     let colorClickedBtn = urlBtn + '&colors=pink'
-    clearLoadImg();
+    function changeColor() {
+      location.hash = "&colors=pink";
+    }
+    function urlfunc() {
+      document.getElementById("#pink").innerHTML = event.newURL;
+    }
     fetch(colorClickedBtn)
     .then(response => {
       if (!response.ok) throw Error(response.statusText);

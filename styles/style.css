@@ -77,14 +77,33 @@ input[type="text" i]{
 }
   
 
-.dropdown-content a {
+.dropdown-content button {
     color: black;
     padding: 12px 10px;
     text-decoration: none;
-    display: block;
+    display:list-item;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #fbfbfb;
+    margin: 0em;
+    border-width: 2px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
 }
   
-.dropdown-content a:hover {
+.dropdown-content button:hover {
     background-color: #fbfbfbb9;
     opacity: 85%;
     color:#4da74d;
@@ -92,7 +111,7 @@ input[type="text" i]{
   
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: grid;
 }
   
 .dropdown:hover .dropbtn {
