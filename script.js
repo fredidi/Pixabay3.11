@@ -15,7 +15,7 @@ document.querySelector("#search").addEventListener("click", () => {
   
     document.querySelector("#img-wrapper").textContent = "";
   
-    const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10&colors='+validateClick+'';
+    const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10&color='+validateClick+'';
   
     fetch(url)
   
@@ -47,11 +47,6 @@ document.querySelector("#search").addEventListener("click", () => {
   }
 }
 
-validateClick = {
-  if (==clickAnycolor)
-
-  else if(== clickGrayscale)
-  else if(== clickTransparent)
-  else if(== clickRed)
-
+function clickRed() {
+  document.getElementsById("red").value = validateClick
 }
