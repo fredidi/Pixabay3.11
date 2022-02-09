@@ -6,11 +6,12 @@
 }
 
 html {
-    background-image: url(https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    background-image: url('../images/jay-mantri-TFyi0QOx08c-unsplash(white_overlay).jpg');
     background-size: cover;
     background-attachment: fixed;
     line-height: 1.25;
 }
+
 
 
 header {
