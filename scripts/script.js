@@ -1,13 +1,13 @@
 //https://pixabay.com/api/?key=25560072-709e2be31011a4ece715ca1f6&q=dog&image_type=photo&per_page=10&page=2
 
-var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
+let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 
   function changeColorOnClick(value) {
-  var url = new URL('https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10');
-  var search_params = url.searchParams;
+  let url = new URL('https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10');
+  let search_params = url.searchParams;
 
   search_params.set('colors', value);
-  var new_url = url.toString();
+  let new_url = url.toString();
 
   fetch(new_url)
 
@@ -39,6 +39,9 @@ var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
           container.append(image);
           container.append(userTag);
       }
+
+      
+
    })
 };
 
