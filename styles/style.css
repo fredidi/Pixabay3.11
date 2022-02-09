@@ -28,6 +28,9 @@ h2 {
 h3 {
     font-size: 20px;
 }
+h4 {
+    font-size: 14px;
+}
 
 #logo img {
     width: 160px;
@@ -155,7 +158,7 @@ main div {
     opacity: 80%;
   }
 
-#img-wrapper {
+#img-show {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -163,21 +166,33 @@ main div {
     align-items: flex-start;
 }
 
-#img-wrapper .load-Img {
-    width: 280px;
-    height: 184px;
+#img-show .load-Img {
+    /* width: 280px;
+    height: 184px; */
+    width: 360px;
+    height: 254px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
     margin-top: 15px;
+    box-shadow: 1px 3px 13px 0px hsl(0deg 0% 25%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-#img-wrapper .load-Img:hover {
+#img-show h4 {
+    background-color: white;
+    padding: 5px;
+    opacity: 89%;
+    margin-top: -2%;
+    text-align: center;
+    box-shadow: 1px 3px 13px 0px hsl(0deg 0% 25%);
+    border-bottom-right-radius: 15px;
+}
+
+#img-show .load-Img:hover {
     background-color: #fbfbfb;
     opacity: 90%;
-}
-#img-wrapper p {
-    color: red;
 }
 
 
