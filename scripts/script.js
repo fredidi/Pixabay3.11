@@ -7,6 +7,7 @@ let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
   let search_params = url.searchParams;
 
   search_params.set('colors', value);
+<<<<<<< HEAD
   let new_url = url.toString();
 
   fetch(new_url)
@@ -43,6 +44,51 @@ let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
       
 
    })
+=======
+  var new_url = url.toString();
+    console.log(new_url);
+
+  document.querySelector("#myDropdown").addEventListener("keydown", (keyPressed) => {
+    if (keyPressed.key == "Enter")
+    
+    window.onload = function what(){
+    document.getElementById("#cc").innerHTML = value;
+    };
+
+    fetch(new_url)
+
+    .then(response => {
+      if (!response.ok) throw Error(response.statusText);
+        return response.json();
+     })
+  
+     .then(data => {
+        console.log('Images successfully loaded');
+        document.querySelector("#img-show").textContent = "";
+        for(let i = 0;i < data.hits.length;i++){
+        let container = document.createElement("div")
+        let image = document.createElement("img");
+        let userTag = document.createElement("h4");
+  
+        container.className = "content-wrapper"
+        image.className = "load-Img";
+        userTag.className = "load-User-Tag"; 
+  
+        image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
+        image.addEventListener("click", function(){
+        window.open(data.hits[i].pageURL, '_blank');
+        })
+        userTag.setAttribute('style', 'white-space: pre;');
+        userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+  
+        document.querySelector("#img-show").appendChild(container);
+        container.append(image);
+        container.append(userTag);
+      }
+     })
+  });
+
+>>>>>>> Frida
 };
 
 
