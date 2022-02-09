@@ -18,19 +18,26 @@ var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 
    .then(data => {
       console.log('Images successfully loaded');
-      document.querySelector("#img-wrapper").textContent = "";
+      document.querySelector("#img-show").textContent = "";
       for(let i = 0;i < data.hits.length;i++){
-      let image = document.createElement("div");
-      let tag = document.createElement("div");
+      let container = document.createElement("div")
+      let image = document.createElement("img");
+      let userTag = document.createElement("h4");
+
+      container.className = "content-wrapper"
       image.className = "load-Img";
-      tag.className = "load-Tag";
-      image.style.backgroundImage = "url("+data.hits[i].previewURL +")";
-      tag.textContent="Tags: "+data.hits[i].tags;
+      userTag.className = "load-User-Tag"; 
+
+      image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
       image.addEventListener("click", function(){
       window.open(data.hits[i].pageURL, '_blank');
-      })    
-    document.querySelector("#img-wrapper").appendChild(image);
-    document.querySelector("#img-wrapper").appendChild(tag);
+      })
+      userTag.setAttribute('style', 'white-space: pre;');
+      userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+
+      document.querySelector("#img-show").appendChild(container);
+      container.append(image);
+      container.append(userTag);
     }
    })
 };
@@ -45,7 +52,7 @@ document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
   
   apiRequest = () => {
   
-    document.querySelector("#img-wrapper").textContent = "";
+    document.querySelector("#img-show").textContent = "";
     
    const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
   
@@ -67,13 +74,24 @@ document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
   loadImages = (data) => {
     console.log('Images successfully loaded');
     for(let i = 0;i < data.hits.length;i++){
-      let image = document.createElement("div");
+      let container = document.createElement("div")
+      let image = document.createElement("img");
+      let userTag = document.createElement("h4");
+
+      container.className = "content-wrapper"
       image.className = "load-Img";
-      image.style.backgroundImage = "url("+data.hits[i].previewURL +")";
+      userTag.className = "load-User-Tag"; 
+
+      image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
       image.addEventListener("click", function(){
-        window.open(data.hits[i].pageURL, '_blank');
-      })    
-    document.querySelector("#img-wrapper").appendChild(image); 
+      window.open(data.hits[i].pageURL, '_blank');
+      })
+      userTag.setAttribute('style', 'white-space: pre;');
+      userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+
+      document.querySelector("#img-show").appendChild(container);
+      container.append(image);
+      container.append(userTag);
     }
     
   }
