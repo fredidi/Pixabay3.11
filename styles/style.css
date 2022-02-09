@@ -75,7 +75,7 @@ input[type="text" i]{
     z-index: 1;
     margin-left: 5px;
 }
-  
+
 
 .dropdown-content button {
     color: black;
@@ -83,7 +83,8 @@ input[type="text" i]{
     text-decoration: none;
     display:list-item;
     appearance: auto;
-    -webkit-writing-mode: horizontal-tb !important;
+    /*-webkit-writing-mode: horizontal-tb !important;
+    */
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -201,7 +202,7 @@ main div {
 }
 
 @media (max-width: 800px) {
-    form {
+    button {
         display: flex;
         flex-direction: column;
         min-height: 20px;
@@ -217,6 +218,7 @@ main div {
         text-align: center;
         margin-top: 5px;
     }
+
 
     #side-bar ul {
         margin: 0%;
