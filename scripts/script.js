@@ -20,25 +20,25 @@ var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
       console.log('Images successfully loaded');
       document.querySelector("#img-show").textContent = "";
       for(let i = 0;i < data.hits.length;i++){
-      let container = document.createElement("div")
-      let image = document.createElement("img");
-      let userTag = document.createElement("h4");
+          let container = document.createElement("div")
+          let image = document.createElement("img");
+          let userTag = document.createElement("h4");
 
-      container.className = "content-wrapper"
-      image.className = "load-Img";
-      userTag.className = "load-User-Tag"; 
+          container.className = "content-wrapper"
+          image.className = "load-Img";
+          userTag.className = "load-User-Tag"; 
 
-      image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
-      image.addEventListener("click", function(){
-      window.open(data.hits[i].pageURL, '_blank');
-      })
-      userTag.setAttribute('style', 'white-space: pre;');
-      userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+          image.style.backgroundImage = "url("+data.hits[i].imageURL +")";
+          image.addEventListener("click", function(){
+          window.open(data.hits[i].pageURL, '_blank');
+          })
+          userTag.setAttribute('style', 'white-space: pre;');
+          userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
 
-      document.querySelector("#img-show").appendChild(container);
-      container.append(image);
-      container.append(userTag);
-    }
+          document.querySelector("#img-show").appendChild(container);
+          container.append(image);
+          container.append(userTag);
+      }
    })
 };
 
@@ -64,7 +64,6 @@ document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
      })
   
      .then(data => {
-        console.log(data);
         loadImages(data);
      })
   
@@ -74,24 +73,24 @@ document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
   loadImages = (data) => {
     console.log('Images successfully loaded');
     for(let i = 0;i < data.hits.length;i++){
-      let container = document.createElement("div")
-      let image = document.createElement("img");
-      let userTag = document.createElement("h4");
+        let container = document.createElement("div")
+        let image = document.createElement("img");
+        let userTag = document.createElement("h4");
 
-      container.className = "content-wrapper"
-      image.className = "load-Img";
-      userTag.className = "load-User-Tag"; 
+        container.className = "content-wrapper"
+        image.className = "load-Img";
+        userTag.className = "load-User-Tag"; 
 
-      image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
-      image.addEventListener("click", function(){
-      window.open(data.hits[i].pageURL, '_blank');
-      })
-      userTag.setAttribute('style', 'white-space: pre;');
-      userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+        image.style.backgroundImage = "url("+data.hits[i].imageURL +")";
+        image.addEventListener("click", function(){
+        window.open(data.hits[i].pageURL, '_blank');
+        })
+        userTag.setAttribute('style', 'white-space: pre;');
+        userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
 
-      document.querySelector("#img-show").appendChild(container);
-      container.append(image);
-      container.append(userTag);
+        document.querySelector("#img-show").appendChild(container);
+        container.append(image);
+        container.append(userTag);
     }
     
   }
