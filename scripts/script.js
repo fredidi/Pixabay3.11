@@ -10,12 +10,10 @@ var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
   var new_url = url.toString();
     console.log(new_url);
 
+    document.querySelector("#cc").innerHTML = value;
+
   document.querySelector("#myDropdown").addEventListener("keydown", (keyPressed) => {
     if (keyPressed.key == "Enter")
-    
-    window.onload = function what(){
-    document.getElementById("#cc").innerHTML = value;
-    };
 
     fetch(new_url)
 
