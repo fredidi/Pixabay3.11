@@ -52,57 +52,57 @@ var API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 
 
 //--------------------------------------------------------
-document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
-    if (keyPressed.key == "Enter")
-      apiRequest();
-  });
+// document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
+//     if (keyPressed.key == "Enter")
+//       apiRequest();
+//   });
 
   
-  apiRequest = () => {
+//   apiRequest = () => {
   
-    document.querySelector("#img-show").textContent = "";
+//     document.querySelector("#img-show").textContent = "";
     
-   const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
+//    const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
   
-    fetch(url)
+//     fetch(url)
   
-    .then(response => {
-      if (!response.ok) throw Error(response.statusText);
-        return response.json();
-     })
+//     .then(response => {
+//       if (!response.ok) throw Error(response.statusText);
+//         return response.json();
+//      })
   
-     .then(data => {
-        console.log(data);
-        loadImages(data);
-     })
+//      .then(data => {
+//         console.log(data);
+//         loadImages(data);
+//      })
   
-     .catch(error => console.log(error));   
-  }
+//      .catch(error => console.log(error));   
+//   }
   
-  loadImages = (data) => {
-    console.log('Images successfully loaded');
-    for(let i = 0;i < data.hits.length;i++){
-      let container = document.createElement("div")
-      let image = document.createElement("img");
-      let userTag = document.createElement("h4");
+//   loadImages = (data) => {
+//     console.log('Images successfully loaded');
+//     for(let i = 0;i < data.hits.length;i++){
+//       let container = document.createElement("div")
+//       let image = document.createElement("img");
+//       let userTag = document.createElement("h4");
 
-      container.className = "content-wrapper"
-      image.className = "load-Img";
-      userTag.className = "load-User-Tag"; 
+//       container.className = "content-wrapper"
+//       image.className = "load-Img";
+//       userTag.className = "load-User-Tag"; 
 
-      image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
-      image.addEventListener("click", function(){
-      window.open(data.hits[i].pageURL, '_blank');
-      })
-      userTag.setAttribute('style', 'white-space: pre;');
-      userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+//       image.style.backgroundImage = "url("+data.hits[i].largeImageURL +")";
+//       image.addEventListener("click", function(){
+//       window.open(data.hits[i].pageURL, '_blank');
+//       })
+//       userTag.setAttribute('style', 'white-space: pre;');
+//       userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
 
-      document.querySelector("#img-show").appendChild(container);
-      container.append(image);
-      container.append(userTag);
-    }
+//       document.querySelector("#img-show").appendChild(container);
+//       container.append(image);
+//       container.append(userTag);
+//     }
     
-  }
+//   }
   
 
 // function showInfo(s) {
