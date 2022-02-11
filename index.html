@@ -8,6 +8,7 @@
     
     <script src="scripts/script.js" defer></script>
     <script src="scripts/nextPreviousBtn.js" defer></script>
+    <script src="scripts/search-btn.js" defer></script>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +25,11 @@
         </div>
         <h1>Pixabay - Remake by Frida and Fredrik</h1>
         <form class="search-bar-button">
+            <button id="search-button" onclick="clickSearchButton()" type="button">
+                <img src="images/outline_search_black_24dp.png" alt="">
+            </button>
             <input id="input" type="text" placeholder="Search for images...">
-                <div class="dropdown">
+                <div class="dropdown">    
                     <button class="dropbtn">Choose color</button>
                     <div id="myDropdown" class="dropdown-content">
                         <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any Color</button>
@@ -43,7 +47,7 @@
                         <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
                         <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
                         <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
-
+                   
                     </div>
                 </div>
             </div>
