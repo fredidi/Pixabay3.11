@@ -61,72 +61,6 @@ function changeColorOnClick(selectedColor) {
   }
 }
 
-
- 
-  
-  
-
-  // let clickColorSearch = document.querySelector(newColor)
-  // console.log(clickColorSearch.value)
-
-  // console.log(color);
-  
-
-
-
-
-
-
-// --------------------------------------------------------
-// document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
-//     if (keyPressed.key == "Enter")
-//       apiRequest();
-//   });
-
-// document.querySelector("#search-button").addEventListener("click", () => {  
-
-//   });
-
-  
-  // apiRequest = () => {
-
-  //   document.querySelector("#img-show").textContent = "";
-    
-  //  const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
-  
-  //   fetch(url)
-  
-  //   .then(response => {
-  //     if (!response.ok) throw Error(response.statusText);
-  //       return response.json();
-  //    })
-  
-  //    .then(data => {
-  //       loadImages(data);
-  //    })
-  
-  //    .catch(error => console.log(error));   
-  // }
-
-
-// document.body.addEventListener('keypress', (eventHandler) => {
-//   if (eventHandler.key == "Enter") {
-//       eventHandler.preventDefault();
-//       try {
-//           if (input.value != '') {
-//               console.log(input.value);
-//               fetchURL();
-//           }
-//           else{
-//               console.log('Empty input');
-//           }
-//       } catch (error) {
-//           console.log(error);
-//       }
-//   }
-// })
-
-
 const fetchURL = async (new_url) => {
   try {
       const res = await fetch(new_url);
@@ -142,22 +76,23 @@ const fetchURL = async (new_url) => {
 
 
 const loadImages = async (data) => {
-  for(let i = 0; i < data.hits.length; i++){
-    document.querySelector("#img-show").textContent = ''
+  document.querySelector("#img-show").textContent = ''
+  for (let i = 0; i < data.hits.length; i++) {
+    
     let container = document.createElement("div")
     let image = document.createElement("img");
     let userTag = document.createElement("h4");
 
     container.className = "content-wrapper"
     image.className = "load-Img";
-    userTag.className = "load-User-Tag"; 
+    userTag.className = "load-User-Tag";
 
-    image.style.backgroundImage = "url("+data.hits[i].previewURL +")";
-    image.addEventListener("click", function(){
-    window.open(data.hits[i].pageURL, '_blank');
+    image.style.backgroundImage = "url(" + data.hits[i].previewURL + ")";
+    image.addEventListener("click", function () {
+      window.open(data.hits[i].pageURL, '_blank');
     })
     userTag.setAttribute('style', 'white-space: pre;');
-    userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+    userTag.textContent = "Photographer: " + data.hits[i].user + "\r\nTags: " + data.hits[i].tags;
 
     document.querySelector("#img-show").appendChild(container);
     container.append(image);
