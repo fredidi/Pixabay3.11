@@ -2,25 +2,53 @@
 
 let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 
+//let url = 'https://pixabay.com/api/?key='+API_KEY+'&image_type=photo&per_page=10';
+
+
+
   function changeColorOnClick(value) {
 
     if( value ) {
       console.log('will evaluate to true if value is not: null, "", undefine');
       console.log('Color chosen: ' +value)
-      document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
-        if (keyPressed.key == "Enter")
-        {
-          console.log('Key pressed: ' + keyPressed.key);
-          console.log('Enter pressed: ' + value)
-          console.log('Input value on enter press: ' + input.value);
-        }
-        
-      });
-      // document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
-//     if (keyPressed.key == "Enter")
-//       apiRequest();
-//   });
+      
+      document.body.addEventListener('keypress', (eventHandler) => {
+            if (eventHandler.key == "Enter") {
+                eventHandler.preventDefault();
+                try {
+                    if (input.value != '') {
+                        console.log('Log: '+input.value);
 
+                        let url = new URL('https://pixabay.com/api/?key='+API_KEY+'&image_type=photo&per_page=10');
+                        let search_params = url.searchParams;
+                        search_params.set('q', input.value);
+                        let new_url = url.toString();
+
+                        console.log('New Url: ' +new_url)
+                        
+                        fetchURL(new_url);
+                    }
+                    else{
+                        console.log('Empty input');
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+          })
+      
+      // document.querySelector("#input").addEventListener("keydown", (keyPressed) => {
+      //   if (keyPressed.key == "Enter")
+      //   {
+      //     keyPressed.preventDefault();
+      //     console.log('Key pressed: ' + keyPressed.key);
+      //     console.log('Enter pressed: ' + value)
+      //     console.log('Input value on enter press: ' + input.value);
+      //   }
+        
+      // });
+      
+          
       
       // else{
       //   console.log('Brad Pitt says: Life goes on')
@@ -95,60 +123,78 @@ let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 //   });
 
   
-  apiRequest = () => {
+  // apiRequest = () => {
 
-    document.querySelector("#img-show").textContent = "";
+  //   document.querySelector("#img-show").textContent = "";
     
-   const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
+  //  const url = 'https://pixabay.com/api/?key='+API_KEY+'&q='+input.value+'&image_type=photo&per_page=10';
   
-    fetch(url)
+  //   fetch(url)
   
-    .then(response => {
-      if (!response.ok) throw Error(response.statusText);
-        return response.json();
-     })
+  //   .then(response => {
+  //     if (!response.ok) throw Error(response.statusText);
+  //       return response.json();
+  //    })
   
-     .then(data => {
-        loadImages(data);
-     })
+  //    .then(data => {
+  //       loadImages(data);
+  //    })
   
-     .catch(error => console.log(error));   
+  //    .catch(error => console.log(error));   
+  // }
+
+
+// document.body.addEventListener('keypress', (eventHandler) => {
+//   if (eventHandler.key == "Enter") {
+//       eventHandler.preventDefault();
+//       try {
+//           if (input.value != '') {
+//               console.log(input.value);
+//               fetchURL();
+//           }
+//           else{
+//               console.log('Empty input');
+//           }
+//       } catch (error) {
+//           console.log(error);
+//       }
+//   }
+// })
+
+
+const fetchURL = async (new_url) => {
+  try {
+      const res = await fetch(new_url);
+      console.log(res)
+      const data = await res.json();
+      console.log(data);
+      loadImages(data);
   }
-  
-  loadImages = (data) => {
-    console.log('Images successfully loaded');
-    for(let i = 0;i < data.hits.length;i++){
-        let container = document.createElement("div")
-        let image = document.createElement("img");
-        let userTag = document.createElement("h4");
-
-        container.className = "content-wrapper"
-        image.className = "load-Img";
-        userTag.className = "load-User-Tag"; 
-
-        image.style.backgroundImage = "url("+data.hits[i].previewURL +")";
-        image.addEventListener("click", function(){
-        window.open(data.hits[i].pageURL, '_blank');
-        })
-        userTag.setAttribute('style', 'white-space: pre;');
-        userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
-
-        document.querySelector("#img-show").appendChild(container);
-        container.append(image);
-        container.append(userTag);
-    }
-    
+  catch (error) {
+      console.log(error);
   }
+}
 
 
-// function showInfo(s) {
-// if(s.type == 'mouseover') {
-//   document.getElementById('img-wrapper').style.h
-// }
-// else if(s.type =='mouseout') {
-//   document.getElementById('img-wrapper').style.display = 'flex';
-// }
-// }
+const loadImages = async (data) => {
+  for(let i = 0; i < data.hits.length; i++){
+    let container = document.createElement("div")
+    let image = document.createElement("img");
+    let userTag = document.createElement("h4");
 
-// document.getElementById('img-wrapper').addEventListener('mouseover',showInfo)
-// document.getElementById('img-wrapper').addEventListener('mouseout',showInfo)
+    container.className = "content-wrapper"
+    image.className = "load-Img";
+    userTag.className = "load-User-Tag"; 
+
+    image.style.backgroundImage = "url("+data.hits[i].previewURL +")";
+    image.addEventListener("click", function(){
+    window.open(data.hits[i].pageURL, '_blank');
+    })
+    userTag.setAttribute('style', 'white-space: pre;');
+    userTag.textContent = "Photographer: "+ data.hits[i].user +"\r\nTags: " + data.hits[i].tags;
+
+    document.querySelector("#img-show").appendChild(container);
+    container.append(image);
+    container.append(userTag);
+  }
+}
