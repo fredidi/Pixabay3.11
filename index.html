@@ -7,7 +7,6 @@
     <meta name="description" content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
     
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/nextPreviousBtn.js" defer></script>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,23 +28,23 @@
             </button>
             <input id="input" type="text" placeholder="Search for images...">
                 <div class="dropdown">    
-                    <button class="dropbtn">Choose color</button>
+                    <button class="dropbtn" id="text-value">Choose color</button>
                     <div id="myDropdown" class="dropdown-content">
-                        <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any Color</button>
-                        <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="grayscale">Grayscale</button>
-                        <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="transparent">Transparent</button>
-                        <button id="red" onclick="changeColorOnClick(this.value)" type="button" value="red">Red</button>
-                        <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="orange">Orange</button>
-                        <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="yellow">Yellow</button>
-                        <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="green">Green</button>
-                        <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="turquoise">Turquoise</button>
-                        <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="blue">Blue</button>
-                        <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="lilac">Lilac</button>
-                        <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="pink">Pink</button>
-                        <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="white">White</button>
-                        <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
-                        <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
-                        <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
+                        <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="Any-color">Any Color</button>
+                        <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="Grayscale">Grayscale</button>
+                        <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="Transparent">Transparent</button>
+                        <button id="red" onclick="changeColorOnClick(this.value)" type="button" value="Red">Red</button>
+                        <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="Orange">Orange</button>
+                        <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="Yellow">Yellow</button>
+                        <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="Green">Green</button>
+                        <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="Turquoise">Turquoise</button>
+                        <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="Blue">Blue</button>
+                        <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="Lilac">Lilac</button>
+                        <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="Pink">Pink</button>
+                        <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="White">White</button>
+                        <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="Gray">Gray</button>
+                        <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="Black">Black</button>
+                        <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="Brown">Brown</button>
                    
                     </div>
                 </div>
@@ -57,11 +56,8 @@
     <main>
         <div id="side-bar">
             <ul>
-                <li class="previous"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
-
-                <button id="prev-btn" onclick="changePageOnClick(this.value)" type="button" value="previous">Previous</button>
-                <button id="next-btn" onclick="changePageOnClick(this.value)" type="button" value="next">Next</button>
+                <button name="inactive" class="active" onclick="prevBtn()" type="button">Previous</button>
+                <button name="active" class="active" onclick="nextBtn()" type="button">Next</button>
             </ul>
         </div>
                 
