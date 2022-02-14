@@ -5,10 +5,8 @@ let myUrl;
 let pageCount;
 
 function changeColorOnClick(selectedColor) {
-  console.log('will evaluate to true if value is not: null, "", undefine');
   console.log('Color chosen: ' + selectedColor)
   appliedColor = selectedColor;
-  console.log('applied color: ' + appliedColor)
   document.querySelector("#text-value").textContent = appliedColor;
   return appliedColor;
 }
@@ -19,7 +17,7 @@ document.body.addEventListener('keypress', (eventHandler) => {
     eventHandler.preventDefault();
     try {
       if (input.value != '') {
-        console.log('Log: ' + input.value);
+        console.log('Input log: ' + input.value);
 
         let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=10');
         let search_params = url.searchParams;
@@ -28,9 +26,7 @@ document.body.addEventListener('keypress', (eventHandler) => {
         search_params.set('page', '1')
         myUrl = url.toString();
         pageCount = 1;
-        console.log('New Url: ' + myUrl)
 
-        console.log('string?: ' + typeof myUrl)
         fetchURL(myUrl);
       }
       else {
@@ -45,7 +41,7 @@ document.body.addEventListener('keypress', (eventHandler) => {
 
 document.querySelector("#search-button").addEventListener('click', (searchClick) => {
   if (input.value != '') {
-    console.log('Log: ' + input.value);
+    console.log('Input log: ' + input.value);
 
     let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=10');
     let search_params = url.searchParams;
@@ -56,7 +52,6 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
     pageCount = 1;
     console.log('New Url: ' + myUrl)
 
-    console.log('string?: ' + typeof myUrl)
     fetchURL(myUrl);
 
   }
@@ -70,9 +65,7 @@ let data;
 const fetchURL = async (new_url) => {
   try {
     const res = await fetch(new_url);
-    console.log(res)
     data = await res.json();
-    console.log(data);
     loadImages(data);
   }
   catch (error) {
@@ -83,6 +76,7 @@ const fetchURL = async (new_url) => {
 
 const loadImages = async (data) => {
   document.querySelector("#img-show").textContent = ''
+
   for (let i = 0; i < data.hits.length; i++) {
 
     let container = document.createElement("div")
@@ -93,7 +87,7 @@ const loadImages = async (data) => {
     image.className = "load-Img";
     userTag.className = "load-User-Tag";
 
-    image.style.backgroundImage = "url(" + data.hits[i].previewURL + ")";
+    image.style.backgroundImage = "url(" + data.hits[i].largeImageURL + ")";
     image.addEventListener("click", function () {
       window.open(data.hits[i].pageURL, '_blank');
     })
@@ -110,15 +104,8 @@ const loadImages = async (data) => {
 function nextBtn() {
 
   const pages = data.totalHits / 10
-  console.log('Origin url from search: ' + myUrl)
-
-  console.log('next button get input: ' + input.value);
-  console.log('next button get color: ' + appliedColor);
-  console.log('data totalhits: ' + data.totalHits);
-  console.log('PAGES: ' + pages)
 
   if (pageCount < pages) {
-    console.log('previous page count on next button click: ' + pageCount);
     document.getElementsByName("inactive")[0].setAttribute('class', 'active');
     document.getElementsByName("active")[0].setAttribute('class', 'active');
     pageCount++
@@ -127,10 +114,10 @@ function nextBtn() {
     let search_params = url.searchParams;
     search_params.set('page', pageCount)
     let pageUrl = url.toString();
-    console.log(pageUrl)
-    fetchURL(pageUrl)
 
-    console.log('current page count on next button click: ' + pageCount);
+    fetchURL(pageUrl)
+    console.log(pageUrl)
+
   }
   else {
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
@@ -140,20 +127,20 @@ function nextBtn() {
 function prevBtn() {
 
   if (pageCount == 1) {
+
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
     document.getElementsByName("active")[0].setAttribute('class', 'active');
-
-
-  } else {
+  } 
+  else {
     document.getElementsByName("active")[0].setAttribute('class', 'active');
-    console.log('previous page count on previous button click: ' + pageCount);
+
     pageCount--;
     let url = new URL(myUrl);
     let search_params = url.searchParams;
     search_params.set('page', pageCount)
     let pageUrl = url.toString();
-    console.log(pageUrl)
+
     fetchURL(pageUrl)
-    console.log('current page count on previous button click: ' + pageCount);
+    console.log(pageUrl)
   }
 }

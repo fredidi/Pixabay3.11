@@ -75,6 +75,7 @@ input[type="text" i]{
     border: none;
     cursor: pointer;
     margin-left: 5px;
+    text-transform: capitalize;
 }
 
 .dropdown {
