@@ -13,7 +13,16 @@ html {
 }
 
 
+.inactive {
+    color: grey;
+    cursor: pointer = none;
+    pointer-events: none;
+}
 
+.active {
+    cursor: pointer;
+    pointer-events: visible;
+}
 
 
 
@@ -140,14 +149,12 @@ main div {
 
 #side-bar ul {
     list-style-type: none;
-    margin: 25% auto;
+    margin: 2% auto;
     padding: 0;
     text-align: center;
 }
 
-#side-bar li {
-    margin: 35px;
-}
+
 
 #side-bar li a{
     background-color:#4da74d;
@@ -211,7 +218,7 @@ main div {
 @media (min-width: 800px){
     main {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         /* align-items: flex-start; */
         min-height: 480px;
     }
@@ -250,9 +257,6 @@ main div {
         margin: 0%;
     }
 
-    #img-show h2 {
-        text-align: center;
-    }
 }
 
 footer {
