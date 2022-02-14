@@ -12,10 +12,16 @@ html {
     line-height: 1.25;
 }
 
+.inactive {
+    color: grey;
+    cursor: pointer = none;
+    pointer-events: none;
+}
 
-
-
-
+.active {
+    cursor: pointer;
+    pointer-events: visible;
+}
 
 
 header {
