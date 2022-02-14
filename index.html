@@ -7,7 +7,6 @@
     <meta name="description" content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
     
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/nextPreviousBtn.js" defer></script>
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,19 +54,15 @@
     </header>
 
     <main>
-        <div id="side-bar">
-            <ul>
-                <li class="previous"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
-
-                <button id="prev-btn" onclick="changePageOnClick(this.value)" type="button" value="previous">Previous</button>
-                <button id="next-btn" onclick="changePageOnClick(this.value)" type="button" value="next">Next</button>
-            </ul>
-        </div>
-                
         <div id="img-show">
 
-            </div>
+        </div>
+
+         <div id="side-bar">
+            <ul>
+                <button name="inactive" class="active" onclick="prevBtn()" type="button">Previous</button>
+                <button name="active" class="active" onclick="nextBtn()" type="button">Next</button>
+            </ul>
         </div>
     </main>
 
