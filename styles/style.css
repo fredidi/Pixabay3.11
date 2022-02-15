@@ -27,7 +27,7 @@ h3 {
     font-size: 20px;
 }
 h4 {
-    font-size: 14px;
+    font-size: 10px;
 }
 
 button {
@@ -135,7 +135,7 @@ form.search-bar-button input[type=text] {
   } */
 
 .dropbtn {
-    background-color:#4da74d;
+    background-color: #598b59;
     border-radius: 5px;
     color: white;
     padding: 12px;
@@ -145,6 +145,7 @@ form.search-bar-button input[type=text] {
     margin-left: 5px;
     text-transform: capitalize;
     border-style: none;
+    width: 122px;
 }
 
 .dropdown {
@@ -243,23 +244,22 @@ main div {
 }
 
 
-#next #prev {
-    background-color:#4da74d;
+#next, #prev {
+    background-color:#598b59;
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    border: none;
+    font-size: 14px;
+    border-style: none;
     cursor: pointer;
     padding: 12px;
-    border-style: groove;
 }
 
 #next {
     padding: 12px 27px;
 }
 
-#next:hover #prev:hover {
+#next:hover, #prev:hover {
     background-color: #4da74d;
     opacity: 80%;
   }
@@ -309,35 +309,38 @@ main div {
 
 footer {
     background-color: hsl(0, 0%, 15%);
+    opacity: 85%;
     color: white;
     padding: 12px;
 }
 footer img {
     width: 200px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
-footer div {
-    margin: 12px;
+footer h3 {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 0 px;
 }
 footer a {
     color: white;
+    text-decoration: none;
 }
-.social-list {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    list-style: none;
+.footer-end img {
+    width: 130px; 
+    margin-left: 50px;
+    margin-top: 0 px;
 }
-.frida {
-    grid-area: auto;
-    justify-self: auto;
+.footer-end img:hover {
+    opacity: 85%;
 }
-.fredrik {
-    grid-area: auto;
-    justify-self: auto;
+.footer-center a:hover {
+    color:#4da74d;
+    font-size: 18px;
 }
 
-@media (min-width: 1040px) {
+
+@media (min-width: 800px) {
     footer {
         display: flex;
         flex-direction: row;
