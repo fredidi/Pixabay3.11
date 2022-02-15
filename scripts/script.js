@@ -78,6 +78,7 @@ const loadImages = async (data) => {
   document.querySelector("#img-show").textContent = ''
 
   for (let i = 0; i < data.hits.length; i++) {
+    document.getElementsByName("active")[0].setAttribute('class', 'active');
 
     let container = document.createElement("div")
     let image = document.createElement("img");
