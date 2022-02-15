@@ -12,6 +12,10 @@ html {
     line-height: 1.25;
 }
 
+body {
+    margin: 0;
+}
+
 header {
     text-align: center;
     padding: 16px;
@@ -86,34 +90,31 @@ form.search-bar-button {
 form.search-bar-button input[type=text] {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    background-color: #fbfbfb;
+    background: #fbfbfb;
     opacity: 90%;
-    padding: 12px;
-    font-size: 16px;
-    border-right: none;
-    padding: 10px;
     font-size: 16px;
     border: 1px solid hsl(0, 0%, 25%);
     border-right: none;
+    padding: 10px;
+    font-size: 16px;
     float: left;
     width: 85%;
     max-width: 100%;
-    background: #fbfbfb;
     outline: none;
   }
   
   form.search-bar-button #search-button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    float: left;
-    border: 1px solid hsl(0, 0%, 25%);
-    width: 15%;
-    max-width: 40px;
-    padding: 10px;
     background: #fbfbfb;
     opacity: 90%;
-    font-size: 16px;
+    border: 1px solid hsl(0, 0%, 25%);
     border-left: none;
+    padding: 10px;
+    font-size: 16px;
+    float: left;
+    width: 15%;
+    max-width: 40px;
     cursor: pointer;
   }
 
@@ -130,12 +131,6 @@ form.search-bar-button input[type=text] {
     border-style: none;
     width: 122px;
 }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-  
 
 .dropdown-content {
     display: none;
@@ -220,7 +215,7 @@ main div {
     pointer-events: visible;
 }
 
-#side-bar {
+#navigation {
     margin: 5% auto;
     padding: 0;
 }
@@ -246,7 +241,7 @@ main div {
     opacity: 85%;
   }
 
-  footer {
+footer {
     background-color: hsl(0, 0%, 15%);
     color: white;
 }
@@ -268,7 +263,7 @@ footer a {
 
 footer a:hover {
     opacity: 85%;
-    color:#4da74d;
+    color: #fbfbfb;
 }
 
 
@@ -279,7 +274,7 @@ footer a:hover {
         min-height: 380px;
     }
 
-    #side-bar {
+    #navigation {
         flex: 1;
     }
 
@@ -333,14 +328,11 @@ footer a:hover {
 
     footer {
         text-align: center;
+        padding-bottom: 12px;
     }
 
     #desktop {
         visibility: hidden;
-    }
-
-    footer {
-        padding-bottom: 12px;
     }
 
 }

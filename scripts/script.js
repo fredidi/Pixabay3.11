@@ -1,8 +1,10 @@
-let API_KEY = '25560072-709e2be31011a4ece715ca1f6';
+const API_KEY = '25560072-709e2be31011a4ece715ca1f6';
 
 let appliedColor;
 let myUrl;
 let pageCount;
+const perPage = 10;
+let pages;
 
 function changeColorOnClick(selectedColor) {
   console.log('Color chosen: ' + selectedColor)
@@ -19,18 +21,22 @@ document.body.addEventListener('keypress', (eventHandler) => {
       if (input.value != '') {
         console.log('Input log: ' + input.value);
 
-        let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=10');
+        let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=' + perPage + '');
         let search_params = url.searchParams;
         search_params.set('q', input.value);
         search_params.set('colors', appliedColor);
         search_params.set('page', '1')
         myUrl = url.toString();
         pageCount = 1;
+        console.log(myUrl)
 
         fetchURL(myUrl);
       }
       else {
         console.log('Empty input');
+        document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
+        document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+        document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
       }
     } catch (error) {
       console.log(error);
@@ -43,7 +49,7 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
   if (input.value != '') {
     console.log('Input log: ' + input.value);
 
-    let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=10');
+    let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=' + perPage + '');
     let search_params = url.searchParams;
     search_params.set('q', input.value);
     search_params.set('colors', appliedColor);
@@ -51,12 +57,15 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
     myUrl = url.toString();
     pageCount = 1;
     console.log('New Url: ' + myUrl)
-
+    console.log(myUrl)
     fetchURL(myUrl);
 
   }
   else {
     console.log('Empty input');
+    document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
+    document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+    document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
   }
 })
 
@@ -78,7 +87,6 @@ const loadImages = async (data) => {
   document.querySelector("#img-show").textContent = ''
 
   for (let i = 0; i < data.hits.length; i++) {
-    document.getElementsByName("active")[0].setAttribute('class', 'active');
 
     let container = document.createElement("div")
     let image = document.createElement("img");
@@ -99,49 +107,57 @@ const loadImages = async (data) => {
     container.append(image);
     container.append(userTag);
   }
-}
 
-// Function of Next & Previous Button
+  pages = data.totalHits / perPage
+  if (data.hits.length >= 1) {
+    if (pageCount < pages) {
+      document.getElementsByName("active")[0].setAttribute('class', 'active');
+      console.log('next load log pages' + pages)
+    }
+
+    if (pageCount == 1) {
+      document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
+      console.log('prev load log pages' + pages)
+    }
+  }
+  else {
+    document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
+    document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+    document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
+  }
+
+}
 function nextBtn() {
 
-  const pages = data.totalHits / 10
+  pages = data.totalHits / perPage
 
   if (pageCount < pages) {
+    console.log('next log pages' + pages)
     document.getElementsByName("inactive")[0].setAttribute('class', 'active');
-    document.getElementsByName("active")[0].setAttribute('class', 'active');
     pageCount++
 
     let url = new URL(myUrl);
     let search_params = url.searchParams;
     search_params.set('page', pageCount)
-    let pageUrl = url.toString();
+    myUrl = url.toString();
 
-    fetchURL(pageUrl)
-    console.log(pageUrl)
-
-  }
-  else {
-    document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+    fetchURL(myUrl)
+    console.log(myUrl)
+    if (pageCount >= pages) {
+      document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+    }
   }
 }
 
 function prevBtn() {
+  console.log('prev log pages' + pages)
 
-  if (pageCount == 1) {
+  pageCount--;
+  let url = new URL(myUrl);
+  let search_params = url.searchParams;
+  search_params.set('page', pageCount)
+  myUrl = url.toString();
 
-    document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
-    document.getElementsByName("active")[0].setAttribute('class', 'active');
-  } 
-  else {
-    document.getElementsByName("active")[0].setAttribute('class', 'active');
-
-    pageCount--;
-    let url = new URL(myUrl);
-    let search_params = url.searchParams;
-    search_params.set('page', pageCount)
-    let pageUrl = url.toString();
-
-    fetchURL(pageUrl)
-    console.log(pageUrl)
-  }
+  fetchURL(myUrl)
+  console.log(myUrl)
 }
