@@ -10,6 +10,7 @@
 
     <script src="scripts/script.js" defer></script>
 
+    
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,63 +24,84 @@
 <body>
     <header>
         <div id="logo">
+            <!-- <a href="#" target="_blank"><img src="images/pixabay-logo.png"></a> -->
             <a href="https://www.pixabay.com/" target="_blank"><img src="images/pixabay-logo.png"></a>
         </div>
         <h1>Pixabay - Remake by Frida and Fredrik</h1>
-        <form class="search-bar-button">
-            <button id="search-button" type="button">
-                <img src="images/outline_search_black_24dp.png" alt="">
-            </button>
-            <input id="input" type="text" placeholder="Search for images...">
-            <div class="dropdown">
-                <button class="dropbtn" id="text-value">Choose color</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any-Color</button>
-                    <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="grayscale">Grayscale</button>
-                    <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="transparent">Transparent</button>
-                    <button id="Red" onclick="changeColorOnClick(this.value)" type="button" value="red">Red</button>
-                    <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="orange">Orange</button>
-                    <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="yellow">Yellow</button>
-                    <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="green">Green</button>
-                    <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="turquoise">Turquoise</button>
-                    <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="blue">Blue</button>
-                    <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="lilac">Lilac</button>
-                    <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="pink">Pink</button>
-                    <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="white">White</button>
-                    <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
-                    <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
-                    <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
+
+        <div id="search-layout">
+            <form class="search-bar-button">
+                <input id="input" type="text" placeholder="Search for images...">
+                
+                <button id="search-button" type="button">
+                    <img src="images/outline_search_black_24dp.png" alt="Search-button">
+                </button>
+                
+            </form>    
+                <div class="dropdown">
+                    <button class="dropbtn" id="text-value">Choose color</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any-Color</button>
+                        <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="grayscale">Grayscale</button>
+                        <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="transparent">Transparent</button>
+                        <button id="Red" onclick="changeColorOnClick(this.value)" type="button" value="red">Red</button>
+                        <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="orange">Orange</button>
+                        <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="yellow">Yellow</button>
+                        <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="green">Green</button>
+                        <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="turquoise">Turquoise</button>
+                        <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="blue">Blue</button>
+                        <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="lilac">Lilac</button>
+                        <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="pink">Pink</button>
+                        <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="white">White</button>
+                        <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
+                        <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
+                        <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+        </div>
 
     </header>
 
     <main>
-        <div id="side-bar">
-            <ul>
-                <button name="inactive" class="active" onclick="prevBtn()" type="button">Previous</button>
-                <button name="active" class="active" onclick="nextBtn()" type="button">Next</button>
-            </ul>
-        </div>
-
         <div id="img-show">
 
+        </div>
+
+        <div id="side-bar">
+                <button id="prev" name="inactive" class="inactive" onclick="prevBtn()" type="button">Previous page</button>
+                <button id="next" name="active" class="active" onclick="nextBtn()" type="button">Next page</button>
+            <!-- </ul> -->
         </div>
     </main>
 
     <footer>
         <div class="footer-start">
+            <!-- <img src="images/NeverDontGiveUpDev_Logo_2_white.png" alt=""> -->
             <h3>NeverDontGiveUp Dev.</h3>
-            <p>Teknikhögsksolan</p>
+            <a href="https://www.https://teknikhogskolan.se//">Teknikhögskolan</a>
         </div>
         <div class="footer-center">
-            <h3>Follow us on our social media</h3>
-            <p>LinkedIn</p>
+            <h3>Our Social Media</h3>
+            <!-- <ul class="social-list">
+                <li class="frida">
+                    <a href="https://www.linkedin.com/in/fridawesterdahl/">Frida</a>
+                </li>
+                <li class="fredrik">
+                    Fredrik
+                </li>
+            </ul> -->
+            <p><b>LinkedIn:</b>&emsp;
+                <a href="https://www.linkedin.com/in/fridawesterdahl/">Frida</a>
+                &ensp;|&ensp;<a href="https://www.linkedin.com/in/fredriklam/">Fredrik</a>
+            <br>
+            <b>GitHub:</b>&emsp;
+                <a href="https://github.com/FridaWesterdahl">Frida</a>
+                &ensp;|&ensp;<a href="https://github.com/fredidi">Fredrik</a></p> 
         </div>
         <div class="footer-end">
-            <h3>Thank you for using our service</h3>
-            <p>Ciaao!</p>
+            <h3>Thank you for using our creation</h3>
+            <a href="https://www.teknikhogskolan.se">Teknikhögskolan</a><br>
+            <a href="https://www.pixabay.com">Pixabay</a>
         </div>
     </footer>
 
