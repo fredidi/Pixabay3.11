@@ -56,10 +56,9 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
     search_params.set('page', '1')
     myUrl = url.toString();
     pageCount = 1;
-    console.log('New Url: ' + myUrl)
-    console.log(myUrl)
-    fetchURL(myUrl);
 
+    fetchURL(myUrl);
+    console.log(myUrl)
   }
   else {
     console.log('Empty input');
@@ -107,16 +106,13 @@ const loadImages = async (data) => {
     container.append(image);
     container.append(userTag);
   }
-  console.log('data: ' + data.hits.length)
+
   if (data.hits.length == 0) {
     document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
   }
 
-  console.log('1: ' + pages)
-  pages = 0;
-  console.log('2: ' + pages)
   pages = data.totalHits / perPage
-  console.log('3: ' + pages)
+
   if (pages >= 1) {
     if (pageCount < pages) {
       document.getElementsByName("active")[0].setAttribute('class', 'active');
@@ -138,7 +134,6 @@ function nextBtn() {
   pages = data.totalHits / perPage
 
   if (pageCount < pages) {
-    console.log('next log pages' + pages)
     document.getElementsByName("inactive")[0].setAttribute('class', 'active');
     pageCount++
 
@@ -149,6 +144,7 @@ function nextBtn() {
 
     fetchURL(myUrl)
     console.log(myUrl)
+
     if (pageCount >= pages) {
       document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     }
@@ -156,7 +152,6 @@ function nextBtn() {
 }
 
 function prevBtn() {
-  console.log('prev log pages' + pages)
 
   pageCount--;
   let url = new URL(myUrl);
