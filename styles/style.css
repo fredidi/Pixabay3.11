@@ -265,7 +265,13 @@ footer a:hover {
     opacity: 85%;
     color: #fbfbfb;
 }
+#footer-desktop {
+    font-size: 14px;
+}
 
+#footer-mobile {
+    font-size: 14px;
+}
 
 @media (min-width: 800px){
     main {
@@ -308,7 +314,7 @@ footer a:hover {
     .footer-end {
         text-align: start;
     }
-    #mobile {
+    .footer-mobile {
         visibility: hidden;
     }
 }
@@ -331,7 +337,7 @@ footer a:hover {
         padding-bottom: 12px;
     }
 
-    #desktop {
+    .footer-desktop {
         visibility: hidden;
     }
 

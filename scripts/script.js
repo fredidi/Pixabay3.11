@@ -107,6 +107,10 @@ const loadImages = async (data) => {
     container.append(image);
     container.append(userTag);
   }
+  console.log('data: ' + data.hits.length)
+  if (data.hits.length == 0) {
+    document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
+  }
 
   console.log('1: ' + pages)
   pages = 0;
@@ -122,6 +126,7 @@ const loadImages = async (data) => {
       document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
     }
   }
+  
   else {
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
