@@ -265,12 +265,12 @@ footer a:hover {
     opacity: 85%;
     color: #fbfbfb;
 }
-#footer-desktop {
-    font-size: 14px;
+.footer-desktop {
+    font-size: 13px;
 }
 
-#footer-mobile {
-    font-size: 14px;
+.footer-mobile {
+    font-size: 13px;
 }
 
 @media (min-width: 800px){

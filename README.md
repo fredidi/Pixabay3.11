@@ -31,9 +31,3 @@ Denna inlämningsuppgift ska utföras och lämnas in i par.
 
 ## Betygsättning
 Möjliga betyg: G och IG.
-
-## Inlämning
-1. Gå med i en [projektgrupp](https://yh.pingpong.se/courseId/14519/projectGroupsList.do) i PingPong.
-2. Lämna in följande [via PingPong](https://yh.pingpong.se/courseId/14519/content.do?id=6438513):
-    1. ZIP-arkiv med samtliga filer (som tidigare).
-    2. Länk till sökmotorn på GitHub Pages, som en kommentar i PingPong (som tidigare).
