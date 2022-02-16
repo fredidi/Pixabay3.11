@@ -34,7 +34,7 @@ document.body.addEventListener('keypress', (eventHandler) => {
       }
       else {
         console.log('Empty input');
-        document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
+        document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
         document.getElementsByName("active")[0].setAttribute('class', 'inactive');
         document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
       }
@@ -63,7 +63,7 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
   }
   else {
     console.log('Empty input');
-    document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
+    document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
   }
@@ -108,20 +108,21 @@ const loadImages = async (data) => {
     container.append(userTag);
   }
 
+  console.log('1: ' + pages)
+  pages = 0;
+  console.log('2: ' + pages)
   pages = data.totalHits / perPage
-  if (data.hits.length >= 1) {
+  console.log('3: ' + pages)
+  if (pages >= 1) {
     if (pageCount < pages) {
       document.getElementsByName("active")[0].setAttribute('class', 'active');
-      console.log('next load log pages' + pages)
     }
 
     if (pageCount == 1) {
       document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
-      console.log('prev load log pages' + pages)
     }
   }
   else {
-    document.querySelector("#img-show").textContent = '❌ Invalid text. Please try again!'
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
   }
