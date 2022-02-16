@@ -1,81 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
-    
-    <script src="script.js" defer></script>
+    <meta name="description"
+        content="Two (2) .NET Developer Student at Teknikhögskolan re-making Pixabay for School Assignment 2022. Re-Created by Frida Westerdahl and Fredrik Lam.">
 
+    <script src="scripts/script.js" defer></script>
+
+    
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/icon"href="images/pixabay-favicon-01.png">
-    <title>Pixabay 2.0</title>
+    
+    <link rel="icon" type="image/icon" href="images/NeverDontGiveUpDev_Logo_NDGU.Dev_Fav-icon.png">
+
+    <title>Pixabay</title>
 
 </head>
+
 <body>
     <header>
         <div id="logo">
-            <a href="https://www.pixabay.com/" target="_blank"><img src="images/pixabay-logo.png"></a>
+            <a href="#"><img src="images/NeverDontGiveUpDev_Logo_NDGU.Dev_Icon.png"></a>
         </div>
         <h1>Pixabay - Remake by Frida and Fredrik</h1>
-        <form class="search-bar-button">
-            <input id="input" type="text" placeholder="Search for images..."><i id="search"></i>
-                <div class="dropdown">
-                    <button class="dropbtn">Choose color</button>
-                    <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Any color</a>
-                    <a href="#">Grayscale</a>
-                    <a href="#">Transparent</a>
-                    <a href="#">Red</a>
-                    <a href="#">Orange</a>
-                    <a href="#">Yellow</a>
-                    <a href="#">Green</a>
-                    <a href="#">Turquoise</a>
-                    <a href="#">Blue</a>
-                    <a href="#">Lilac</a>
-                    <a href="#">Pink</a>
-                    <a href="#">White</a>
-                    <a href="#">Gray</a>
-                    <a href="#">Black</a>
-                    <a href="#">Brown</a>
+
+        <div id="search-layout">
+            <form class="search-bar-button">
+                <input id="input" type="text" placeholder="Search for images...">
+                
+                <button id="search-button" type="button">
+                    <img src="images/outline_search_black_24dp.png" alt="Search-button">
+                </button>
+                
+            </form>    
+            <div class="dropdown">
+                <button class="dropbtn" id="text-value">Choose color</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any-Color</button>
+                    <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="grayscale">Grayscale</button>
+                    <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="transparent">Transparent</button>
+                    <button id="Red" onclick="changeColorOnClick(this.value)" type="button" value="red">Red</button>
+                    <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="orange">Orange</button>
+                    <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="yellow">Yellow</button>
+                    <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="green">Green</button>
+                    <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="turquoise">Turquoise</button>
+                    <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="blue">Blue</button>
+                    <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="lilac">Lilac</button>
+                    <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="pink">Pink</button>
+                    <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="white">White</button>
+                    <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
+                    <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
+                    <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
                 </div>
             </div>
-        </form>
+        </div>
 
     </header>
 
     <main>
-        <div id="side-bar">
-            <ul>
-                <li class="previous"><a href="#">Previous</a></li>
-                <li class="next"><a href="#">Next</a></li>
-            </ul>
-        </div>
-                
         <div id="img-show">
-            <div id="img-wrapper">
 
-            </div>
+        </div>
+
+        <div id="navigation">
+                <button id="prev" name="inactive" class="inactive" onclick="prevBtn()" type="button">Previous page</button>
+                <button id="next" name="active" class="inactive" onclick="nextBtn()" type="button">Next page</button>
         </div>
     </main>
 
     <footer>
         <div class="footer-start">
-            <h3>NeverDontGiveUp Dev.</h3>
-            <p>Teknikhögsksolan</p>
+            <br>
+            <a href="#"><img src="images/NeverDontGiveUpDev_Logo_white_NDGU.Dev.png" alt="Header-Logo"></a>
+            
         </div>
         <div class="footer-center">
-            <h3>Follow us on our social media</h3>
-            <p>LinkedIn</p>
+            <h3>OUR SOCIAL MEDIA</h3>
+            <p><b>LinkedIn:</b>&emsp;
+                <a href="https://www.linkedin.com/in/fridawesterdahl/" target="_blank">Frida</a>
+                &ensp;|&ensp;<a href="https://www.linkedin.com/in/fredriklam/" target="_blank">Fredrik</a>
+            <br>
+            <b>GitHub:</b>&emsp; &ensp;
+                <a href="https://github.com/FridaWesterdahl" target="_blank">Frida</a>
+                &ensp;|&ensp;<a href="https://github.com/fredidi" target="_blank">Fredrik</a></p>
+            
+            <p class="footer-desktop">© 2022. School Assignment. version.3.11</p>
         </div>
         <div class="footer-end">
-            <h3>Thank you for using our service</h3>
-            <p>Ciaao!</p>
+            <h3>THANKS TO</h3>
+            <a href="https://www.teknikhogskolan.se" target="_blank"><img src="images/Logo_white_TH.png"></a>
+            <a href="https://www.pixabay.com" target="_blank"><img src="images/Logo_white_Pixabay.png"></a>
+        
+            <p class="footer-mobile">© 2022. School Assignment. version.3.11</p>
         </div>
     </footer>
+
+
 </body>
+
 </html>
