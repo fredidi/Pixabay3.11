@@ -6,46 +6,23 @@ let pageCount;
 const perPage = 10;
 let pages;
 
-function changeColorOnClick(selectedColor) {
-  console.log('Color chosen: ' + selectedColor)
-  appliedColor = selectedColor;
-  document.querySelector("#text-value").textContent = appliedColor;
-  return appliedColor;
-}
+
+const colorSelect = document.querySelector("#color-dropdown")
+colorSelect.onclick = (event) => {
+  event.preventDefault();
+
+  appliedColor = colorSelect.value;
+  console.log('Applied color: ' + appliedColor)
+};
 
 
-document.body.addEventListener('keypress', (eventHandler) => {
-  if (eventHandler.key == "Enter") {
-    eventHandler.preventDefault();
-    try {
-      if (input.value != '') {
-        console.log('Input log: ' + input.value);
-
-        let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=' + perPage + '');
-        let search_params = url.searchParams;
-        search_params.set('q', input.value);
-        search_params.set('colors', appliedColor);
-        search_params.set('page', '1')
-        myUrl = url.toString();
-        pageCount = 1;
-        console.log(myUrl)
-
-        fetchURL(myUrl);
-      }
-      else {
-        console.log('Empty input');
-        document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
-        document.getElementsByName("active")[0].setAttribute('class', 'inactive');
-        document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-})
+document.addEventListener('submit', (eventHandler) => {
+  eventHandler.preventDefault();
+  query();
+});
 
 
-document.querySelector("#search-button").addEventListener('click', (searchClick) => {
+const query = () => {
   if (input.value != '') {
     console.log('Input log: ' + input.value);
 
@@ -56,9 +33,9 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
     search_params.set('page', '1')
     myUrl = url.toString();
     pageCount = 1;
+    console.log(myUrl)
 
     fetchURL(myUrl);
-    console.log(myUrl)
   }
   else {
     console.log('Empty input');
@@ -66,7 +43,8 @@ document.querySelector("#search-button").addEventListener('click', (searchClick)
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
   }
-})
+}
+
 
 let data;
 
@@ -122,7 +100,7 @@ const loadImages = async (data) => {
       document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
     }
   }
-  
+
   else {
     document.getElementsByName("active")[0].setAttribute('class', 'inactive');
     document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
