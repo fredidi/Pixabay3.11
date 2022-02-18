@@ -33,30 +33,29 @@
             <form class="search-bar-button">
                 <input id="input" type="text" placeholder="Search for images...">
                 
-                <button id="search-button" type="button">
+                <button id="search-button" type="submit">
                     <img src="images/outline_search_black_24dp.png" alt="Search-button">
                 </button>
                 
-            </form>    
+            </form>
             <div class="dropdown">
-                <button class="dropbtn" id="text-value">Choose color</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <button id="any-color" onclick="changeColorOnClick(this.value)" type="button" value="any-color">Any-Color</button>
-                    <button id="grayscale" onclick="changeColorOnClick(this.value)" type="button" value="grayscale">Grayscale</button>
-                    <button id="transparent" onclick="changeColorOnClick(this.value)" type="button" value="transparent">Transparent</button>
-                    <button id="Red" onclick="changeColorOnClick(this.value)" type="button" value="red">Red</button>
-                    <button id="orange" onclick="changeColorOnClick(this.value)" type="button" value="orange">Orange</button>
-                    <button id="yellow" onclick="changeColorOnClick(this.value)" type="button" value="yellow">Yellow</button>
-                    <button id="green" onclick="changeColorOnClick(this.value)" type="button" value="green">Green</button>
-                    <button id="turquoise" onclick="changeColorOnClick(this.value)" type="button" value="turquoise">Turquoise</button>
-                    <button id="blue" onclick="changeColorOnClick(this.value)" type="button" value="blue">Blue</button>
-                    <button id="lilac" onclick="changeColorOnClick(this.value)" type="button" value="lilac">Lilac</button>
-                    <button id="pink" onclick="changeColorOnClick(this.value)" type="button" value="pink">Pink</button>
-                    <button id="white" onclick="changeColorOnClick(this.value)" type="button" value="white">White</button>
-                    <button id="gray" onclick="changeColorOnClick(this.value)" type="button" value="gray">Gray</button>
-                    <button id="black" onclick="changeColorOnClick(this.value)" type="button" value="black">Black</button>
-                    <button id="brown" onclick="changeColorOnClick(this.value)" type="button" value="brown">Brown</button>
-                </div>
+                <select id="color-dropdown">
+                    <option value="any-color">Any-Color</option>
+                    <option value="grayscale">Grayscale</option>
+                    <option value="transparent">Transparent</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="turquoise">Turquoise</option>
+                    <option value="blue">Blue</option>
+                    <option value="lilac">Lilac</option>
+                    <option value="pink">Pink</option>
+                    <option value="white">White</option>
+                    <option value="gray">Gray</option>
+                    <option value="black">Black</option>
+                    <option value="brown">Brown</option>
+                </select>
             </div>
         </div>
 

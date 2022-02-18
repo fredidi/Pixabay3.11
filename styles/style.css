@@ -101,9 +101,9 @@ form.search-bar-button input[type=text] {
     width: 85%;
     max-width: 100%;
     outline: none;
-  }
+}
   
-  form.search-bar-button #search-button {
+form.search-bar-button #search-button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: #fbfbfb;
@@ -116,51 +116,22 @@ form.search-bar-button input[type=text] {
     width: 15%;
     max-width: 40px;
     cursor: pointer;
-  }
+}
 
-.dropbtn {
+#color-dropdown {
     background-color:#4da74d;
     border-radius: 5px;
     color: #fbfbfb;
-    padding: 12px;
+    padding: 10px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     margin-left: 5px;
     text-transform: capitalize;
     border-style: none;
-    width: 122px;
+    width: 135px;
+    
 }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    border-radius: 5px;
-    background-color: #fbfbfb;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px hsl(0, 0%, 25%);
-    z-index: 1;
-    margin-left: 5px;
-    height: 250px;
-    overflow-y: auto;
-}
-
-
-.dropdown-content button:hover {
-    background-color: #fbfbfbb9;
-    opacity: 85%;
-    color:#4da74d;
-}
-  
-
-.dropdown:hover .dropdown-content {
-    display: grid;
-}
-  
-.dropdown:hover .dropbtn {
-    background-color: #4da74d;
-    opacity: 80%;
-  }
 
 main div {
     padding: 16px;
@@ -202,10 +173,8 @@ main div {
     opacity: 90%;
 }
 
-
 .inactive {
     visibility: hidden;
-    color: grey;
     cursor: pointer = none;
     pointer-events: none;
 }
@@ -341,5 +310,10 @@ footer a:hover {
         visibility: hidden;
     }
 
+}
+@media (max-width: 425px) {
+    h1 {
+        font-size: 30px;
+    }
 }
 
