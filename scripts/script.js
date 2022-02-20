@@ -7,44 +7,45 @@ const perPage = 10;
 let pages;
 
 
-const colorSelect = document.querySelector("#color-dropdown")
-colorSelect.onclick = (event) => {
+let color = document.querySelector("#myDropdown");
+
+color.onclick = event => {
   event.preventDefault();
-
-  appliedColor = colorSelect.value;
-  console.log('Applied color: ' + appliedColor)
-};
-
-
-document.addEventListener('submit', (eventHandler) => {
-  eventHandler.preventDefault();
-  query();
-});
-
-
-const query = () => {
-  if (input.value != '') {
-    console.log('Input log: ' + input.value);
-
-    let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=' + perPage + '');
-    let search_params = url.searchParams;
-    search_params.set('q', input.value);
-    search_params.set('colors', appliedColor);
-    search_params.set('page', '1')
-    myUrl = url.toString();
-    pageCount = 1;
-    console.log(myUrl)
-
-    fetchURL(myUrl);
-  }
-  else {
-    console.log('Empty input');
-    document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
-    document.getElementsByName("active")[0].setAttribute('class', 'inactive');
-    document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
-  }
+  appliedColor = color.value;
+  console.log("Color = " + appliedColor)
 }
 
+document.addEventListener("submit", (event) => {
+  event.preventDefault();
+  search();
+});
+
+function search() {
+    try {
+      if (input.value != '') {
+        console.log('Input log: ' + input.value);
+
+        let url = new URL('https://pixabay.com/api/?key=' + API_KEY + '&image_type=photo&per_page=' + perPage + '');
+        let search_params = url.searchParams;
+        search_params.set('q', input.value);
+        search_params.set('colors', appliedColor);
+        search_params.set('page', '1')
+        myUrl = url.toString();
+        pageCount = 1;
+        console.log(myUrl)
+
+        fetchURL(myUrl);
+      }
+      else {
+        console.log('Empty input');
+        document.querySelector("#img-show").textContent = '⚠️ Invalid text. Please try again!'
+        document.getElementsByName("active")[0].setAttribute('class', 'inactive');
+        document.getElementsByName("inactive")[0].setAttribute('class', 'inactive');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+}
 
 let data;
 
