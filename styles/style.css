@@ -33,30 +33,6 @@ h3 {
 h4 {
     font-size: 10px;
 }
-/* 
-button {
-    color: black;
-    padding: 12px 10px;
-    text-decoration: none;
-    appearance: auto;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-    box-sizing: border-box;
-    background-color: #fbfbfb;
-    margin: 0em;
-    border-width: 2px;
-    border-style: none;
-    border-color: none;
-    border-image: initial;
-} */
 
 #logo img {
     width: 200px;
@@ -83,30 +59,21 @@ form.search-bar-button {
     justify-self: start;
 }
 
-#myDropdown {
-    background-color:#4da74d;
-    border-radius: 5px;
-    color: #fbfbfb;
-    padding: 12px;
-    font-size: 16px;
+select {
+    background-color: #4da74d;
+    color: white;
     border: none;
     cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 11px;
     margin-left: 5px;
-    text-transform: capitalize;
-    border-style: none;
-    width: 122px;
-    position: relative;
-    display: block;
 }
-.dropdown select:hover {
-    /* box-shadow: 0px 8px 16px 0px hsl(0, 0%, 25%); */
-    background-color: red;
+#myDropdown option {
+    box-shadow: 0px 8px 16px 0px hsl(0, 0%, 25%);
+    background-color: #fbfbfb;
+    color: #4da74d;   
 }
-#myDropdown.select {
-    /* box-shadow: 0px 8px 16px 0px hsl(0, 0%, 25%); */
-    background-color: red;
-}
-
 
 #search-button img {
     width: 17px;
@@ -126,9 +93,9 @@ form.search-bar-button input[type=text] {
     width: 85%;
     max-width: 100%;
     outline: none;
-  }
+}
   
-  form.search-bar-button #search-button {
+form.search-bar-button #search-button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: #fbfbfb;
@@ -141,35 +108,7 @@ form.search-bar-button input[type=text] {
     width: 15%;
     max-width: 40px;
     cursor: pointer;
-  }
-
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    border-radius: 5px;
-    background-color: #fbfbfb;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px hsl(0, 0%, 25%);
-    z-index: 1;
-    margin-left: 5px;
-    height: 250px;
-    overflow-y: auto;
 }
-
-
-#myDropdown option:hover {
-    background-color: #fbfbfbb9;
-    opacity: 85%;
-    color:#4da74d;
-}
-  
-
-.dropdown:hover .dropdown-content {
-    display: grid;
-}
-  
-
 
 main div {
     padding: 16px;
