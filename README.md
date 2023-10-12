@@ -1,3 +1,5 @@
+## Github pages: https://fredidi.github.io/Pixabay3.11/
+
 # Inlämningsuppgift 2: Bildsökmotor
 Skriv en sökmotor med HTML, CSS och JavaScript som hämtar sina bilder från [Pixabay](https://pixabay.com/). Exakt utformning och innehåll är upp till er, men ni måste uppfylla följande krav:
 
